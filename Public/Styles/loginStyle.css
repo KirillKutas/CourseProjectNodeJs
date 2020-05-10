@@ -1,0 +1,12 @@
+.LoginDiv{
+    font-family: 'Times New Roman', Times, serif;
+}
+p{
+    margin-bottom: 0px;
+}
+.submitButton{
+    width: 100%;
+}
+.regButtons{
+    width: 150px;
+}
