@@ -25,12 +25,19 @@
 <body>
     <div class="header row">
         <div class="col-md-4">
-            <form action="mainPage/search" method="POST">
-                <input class="search" name="search" type="search" value="Search" onblur="onBlur(this)"
-                    onfocus="changeText(this)" />
-                <input class="searchButton" type="submit" value=""/>
+            
+           {{#if User}} <form  action="/mainPage/searchA" method="POST">
+                <div class="row">
+                    <div class="col-md-8">
+                        <input class="search" name="search" type="search" value="Search" onblur="onBlur(this)"
+                            onfocus="changeText(this)" />
+                    </div>
+                    <div class="col-md-4 col-offset-8">
+                        <input class="searchButton" type="submit" value="" />
+                    </div>
+                </div>
             </form>
-
+            {{/if}}
         </div>
         <div class="col-md-4" style="text-align: center;">
             <h1>Exchange job</h1>
@@ -45,22 +52,23 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     {{#if Empl}}
                     <a class="dropdown-item" href="/mainPage/mpE">Main page</a>
-                    <a class="dropdown-item" href="/mainPage/chats">Chats</a>
+                    <a class="dropdown-item" href="/mainPage/chatsE">Chats</a>
                     <a class="dropdown-item" href="/mainPage/myVacancies">My vacancies</a>
                     <a class="dropdown-item" href="/mainPage/myAccE">My account</a>
                     {{/if}}
                     {{#if User}}
                     <a class="dropdown-item" href="/mainPage/mpA">Main page</a>
-                    <a class="dropdown-item" href="/mainPage/chats">Chats</a>
+                    <a class="dropdown-item" href="/mainPage/chatsA">Chats</a>
                     <a class="dropdown-item" href="/mainPage/myAccA">My account</a>
                     <a class="dropdown-item" href="/mainPage/myResume">My resume</a>
                     {{/if}}
+                    <a class="dropdown-item" href="/mainPage/Logout">Logout</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4 offset-md-4">
+        <div class="col-md-8 offset-md-2">
             {{{body}}}
         </div>
     </div>

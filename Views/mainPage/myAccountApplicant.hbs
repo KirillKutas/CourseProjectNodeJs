@@ -1,1 +1,39 @@
-<h1>myAccountApplicant</h1>
+<div class="mDiv">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 style="text-align: center;">{{personName}}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="margin-left: 70px;">
+            <h5>Age: {{age}}</h5>
+        </div>
+        <div class="col-md-4 offset-md-2" style="margin-left: 142px;">
+            <form action="editAF" method="GET">
+                <input class="openVacancies" type="submit" value="Edit account information" />
+            </form>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 5px;">
+        <div class="col-md-4" style="margin-left: 70px;">
+            <h5>E-Mail: {{email}}</h5>
+        </div>
+        <div class="col-md-4 offset-md-2">
+            <form action="myResume" method="GET">
+                <input class="openVacancies" type="submit" value="Open resume" />
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" style="margin-left: 70px;">
+            <h5>Mobile telephone: {{mobileTelephone}}</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h5 style="margin-left: 70px;">Description:</h5>
+                <p style="margin-left: 70px;">
+                   {{#if descNull}}No description{{else}}{{description}}{{/if}}</p>
+        </div>
+    </div>
+</div>

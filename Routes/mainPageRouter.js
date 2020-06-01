@@ -1,15 +1,40 @@
 const express = require("express");
 const mainPage = require("../Controllers/mainPageController.js");
 const homeRouter = express.Router();
- 
+
 homeRouter.get("/mpA", mainPage.mpA);
 homeRouter.get("/mpE", mainPage.mpE);
-homeRouter.get("/chats",mainPage.chats);
+homeRouter.get("/chatsE", mainPage.chatsE);
+homeRouter.get("/chatsA", mainPage.chatsA);
 homeRouter.get("/myAccE", mainPage.myAccE);
 homeRouter.get("/myAccA", mainPage.myAccA);
 homeRouter.get("/myResume", mainPage.myResume);
 homeRouter.get("/myVacancies", mainPage.myVacancies);
-homeRouter.post("/search", mainPage.search);
+homeRouter.post("/searchE", mainPage.searchE);
+homeRouter.post("/searchA", mainPage.searchA);
+homeRouter.get("/Logout", mainPage.logout);
+homeRouter.get("/createResume", mainPage.clickCreateResume);
+homeRouter.post("/saveResume", mainPage.saveResume);
+homeRouter.get("/deleteResume", mainPage.deleteResume);
+homeRouter.get("/changeResume", mainPage.changeResume);
+homeRouter.post("/UpdateResume", mainPage.UpdateResume);
+homeRouter.get("/editAF", mainPage.EditAF);
+homeRouter.post("/editAinf", mainPage.EditAInf);
+homeRouter.post("/checkSomeResume", mainPage.checkSomeResume);
+homeRouter.get("/editCompanyInformation", mainPage.editCompanyInformation);
+homeRouter.post("/saveCompanyInformation", mainPage.saveCompanyInformation);
+homeRouter.get("/createVacancie", mainPage.CreateVacancie);
+homeRouter.post("/saveVacancie", mainPage.SaveVacancie);
+homeRouter.post("/Vacancy", mainPage.Vacancy);
+homeRouter.post("/EditVacancy", mainPage.EditVacancy);
+homeRouter.post("/UpdateVacancy", mainPage.UpdateVacancy);
+homeRouter.post("/DeleteVacancy", mainPage.DeleteVacancy);
+homeRouter.post("/createChat", mainPage.CreateChat);
+homeRouter.post("/OpenChat", mainPage.OpenChat);
+homeRouter.post("/Messages", mainPage.Messages);
+homeRouter.post("/GetMessages", mainPage.GetMessages);
+homeRouter.post("/checkSomeVacancy", mainPage.checkSomeVacancy);
+homeRouter.post("/deleteChat", mainPage.deleteChat);
+homeRouter.post("/filter", mainPage.filter);
 
- 
 module.exports = homeRouter;

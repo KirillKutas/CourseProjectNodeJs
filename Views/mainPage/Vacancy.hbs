@@ -1,0 +1,49 @@
+<div class="mDiv">
+    <div class="row">
+        <div class="col-md-3 offset-md-2">
+            <h3>{{Position}}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 offset-md-2">
+            <p>Salary: {{Salary}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3 offset-md-2">
+            <p>Experience: {{Experience}}</p>
+        </div>
+    </div>
+    <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;">
+        <div class="col-md-3 offset-md-1">
+            <h3>Skills:</h3>
+            <p>{{Skills}}</p>
+        </div>
+    </div>
+    <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;">
+        <div class="col-md-3 offset-md-1">
+            <h3>Languages:</h3>
+            <p>{{Languages}}</p>
+        </div>
+    </div>
+    <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;">
+        <div class="col-md-11 offset-md-1">
+            <h3>Descriptions:</h3>
+            <p>{{Description}}</p>
+        </div>
+    </div>
+    <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;margin-bottom:15px">
+        <div class="col-md-3 offset-md-1">
+            <form action="EditVacancy" method="POST" style="margin-left: 300px;margin-top:10px">
+                <input class="openVacancies" type="submit" value="Edit vacancy">
+                <input type="hidden" name="id" value="{{id}}">
+            </form>
+        </div>
+        <div class="col-md-3">
+            <form action="DeleteVacancy" method="POST" style="margin-left: 300px;margin-top: 10px">
+                <input class="openVacancies" type="submit" value="Delete vacancy">
+                <input type="hidden" name="id" value="{{id}}">
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,70 @@
-<h1>Appl</h1>
+<script>
+    function CreateColl() {
+        let checkbox = document.getElementById("checkbox_check");
+        if (checkbox.checked) {
+            var topic = document.getElementById('Topics')
+            var toTopic = document.getElementById('Experience')
+            var from = document.getElementById('from')
+            var toFrom = document.getElementById('From')
+            var to = document.getElementById('to')
+            var toTo = document.getElementById('To')
+            toTopic.value = topic.options[topic.selectedIndex].text;
+            toFrom.value = from.value;
+            toTo.value = to.value;
+        }
+    }
+</script>
+<div class="mDiv">
+    <div class="someVacan">
+        <div class="row">
+            <div class="col-md-4 offset-md-5">
+                <input type="checkbox" id="checkbox_check"> Use filter <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 offset-md-2">
+                <h5>Experience:</h3>
+                    <div class="btn-group">
+                        <select id="Topics">
+                            <option value="1">No work experience</option>
+                            <option value="2">From 1 to 3 years</option>
+                            <option value="3">From 3 to 5 years</option>
+                            <option value="4">More than 5 years</option>
+                            <option value="5" selected="selected">Not use</option>
+                        </select>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                <h5>Salary:</h3>
+                    <p style="display: inline-block;">from</p>
+                    <input style="display: inline-block;width: 60px" type="text" id="from">
+                    <p style="display: inline-block;">to</p>
+                    <input style="display: inline-block;width: 60px" type="text" id="to">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 offset-md-5">
+                <form action="filter" method="POST">
+                    <input class="md"style="width: 100px;"  type="submit" onclick="CreateColl()" value="Use">
+                    <input type="hidden" id="Experience" name="Experience1" value="ed"/>
+                    <input type="hidden" id="From" name="From1" value="ed"/>
+                    <input type="hidden" id="To" name="To1" value="ed"/>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{#each data}}
+    <div class="row someVacan">
+        <div class="col-md-5 offset-md-4">
+            <h3>{{this.name}}</h3>
+            <p>Position: {{this.position}}</p>
+            <p>Skills: {{this.skills}}</p>
+            <form action="checkSomeVacancy" method="POST" style="margin-left: 500px; margin-top: -30px">
+                <input class="md" type="submit" value="More details" />
+                <input type="hidden" name="id" value="{{this.id}}">
+            </form>
+        </div>
+    </div>
+    {{/each}}
+
+</div>

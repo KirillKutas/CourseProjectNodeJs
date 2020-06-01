@@ -1,0 +1,19 @@
+<div class="mDiv">
+    <div class="row prokrutka" style="margin-left: 0px;">
+        {{#each data}}
+        <div class="row someVacan" style="border-top: 1px solid black;">
+
+            <div class="col-md-5 offset-md-4">
+                <h3>{{this.name}}</h3>
+                <p>Position: {{this.position}}</p>
+                <p>Skills: {{this.skills}}</p>
+                <form action="checkSomeVacancy" method="POST" style="margin-left: 500px; margin-top: -30px">
+                    <input class="md" type="submit" value="More details" />
+                    <input type="hidden" name="id" value="{{this.id}}">
+                </form>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+</div>

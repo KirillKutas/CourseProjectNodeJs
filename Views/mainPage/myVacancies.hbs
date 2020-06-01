@@ -1,1 +1,22 @@
-<h1>myVacancies</h1>
+<div class="mDiv">
+    {{#each data}}
+    <div class="row someVacan">
+        <div class="col-md-6 offset-md-1">
+            <h3>{{this.position}}</h3>
+            <p>Skills: {{this.skills}}</p>
+            <form action="Vacancy" method="POST">
+                <input class="md" type="submit" value="More details"/>
+                <input type="hidden" name="currentId" value="{{this.id}}">
+            </form>
+        </div>
+    </div>
+    {{/each}}
+     
+    <div class="row">
+        <div class="col-md-3 offset-md-9">
+            <form action="createVacancie" method="GET">
+                <input type="submit" style="margin-left: -340px;width: 100px;height: 60px;margin-top: 5px;margin-bottom: 5px" class="openVacancies" value="Create a job"/>
+            </form>
+        </div>
+    </div>
+</div>

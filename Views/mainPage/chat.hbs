@@ -1,0 +1,83 @@
+<script>
+    setInterval(getMessages, 100);
+    async function getMessages() {
+        let chatId = document.getElementById("chatId");
+        let i = document.getElementById("i");
+        let messages = document.getElementById("messages");
+        let eou = document.getElementById("eou");
+
+        let send = {
+            chatId: chatId.value,
+            employer: employer.value,
+            user: user.value,
+            i: i.value,
+            eou: eou.value
+        }
+        let response = await fetch('/mainPage/GetMessages', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(send)
+        });
+        let result = await response.json();
+        for (var a = 0; a < result.length; a++) {
+            if (a == 0) {
+                messages.innerHTML = result[a].who + result[a].message + "<br/>";
+            }
+            else {
+                messages.innerHTML += result[a].who + result[a].message + "<br/>";
+                messages.scrollTo(0, messages.scrollHeight);
+            }
+        }
+
+    }
+    async function sendMessage() {
+        let message = document.getElementById("message");
+        let messages = document.getElementById("messages");
+        let user = document.getElementById("user");
+        let employer = document.getElementById("employer");
+        let chatId = document.getElementById("chatId");
+        let i = document.getElementById("i");
+        let eou = document.getElementById("eou");
+
+        let mess = message.value;
+        
+        message.value = "";
+        let send = {
+            chatId: chatId.value,
+            employer: employer.value,
+            user: user.value,
+            message: mess,
+            i: i.value,
+            eou: eou.value
+        }
+        let response = await fetch('/mainPage/Messages', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(send)
+        });
+    }
+</script>
+<div class="mDiv">
+    <div class="row">
+        <div class="prokrutka" id="messages">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-2">
+            <input type="text" id="message" style="width: 600px;">
+        </div>
+        <div class="col-md-2 offset-md-1">
+            <input type="button" value="Send" onclick="sendMessage()">
+            <input type="hidden" id="employer" value="{{employer}}">
+            <input type="hidden" id="user" value="{{user}}">
+            <input type="hidden" id="chatId" value="{{chatId}}">
+            <input type="hidden" id="i" value="{{i}}">
+            <input type="hidden" id="eou" value="{{eou}}">
+        </div>
+    </div>
+</div>

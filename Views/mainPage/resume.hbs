@@ -1,0 +1,57 @@
+<div class="mDiv">
+    <div class="row" style="margin-top: 15px;">
+        <div class="col-md-1 offset-md-2">
+            <h3>{{PersonName}}</h3>
+            <div class="col-md-1 offset-md-1">
+                <h5>{{age}}</h5>
+                <h5>{{telephone}}</h5>
+                <h5>{{mail}}</h5>
+            </div>
+        </div>
+        <div class="col-md-1 offset-md-3">
+            <img class="companyImage" id="image" src="/Images/searchButton.png" />
+        </div>
+    </div>
+    <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;">
+        <div class="col-md-6 offset-md-1">
+            <h3>Desired position:</h3>
+            <h6>{{position}}</h6>
+        </div>
+    </div>
+    <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;">
+        <div class="col-md-6 offset-md-1">
+            <h3>Education:</h3>
+            <h6>{{education}}</h6>
+        </div>
+    </div>
+    <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;">
+        <div class="col-md-6 offset-md-1">
+            <h3>Skills:</h3>
+            {{#each skills}}
+            <div style="display: inline-block;">
+                <h6>{{this.skill}}</h6>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;">
+        <div class="col-md-6 offset-md-1">
+            <h3>Languages:</h3>
+            {{#each Languages}}
+            <div style="display: inline-block;">
+                <h6>{{this.language}}</h6>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;margin-bottom:15px">
+        <div class="col-md-3 offset-md-1" style="margin-top: 15px;">
+            <form method="POST" action="createChat" style="margin-left: 300px;">
+                <input class="openVacancies" type="submit" value="Respond" />
+                <input type="hidden" name="interviewersId" value="{{interviewersId}}">
+                <input type="hidden" name="user" value="false">
+            </form>
+        </div>
+
+    </div>
+</div>

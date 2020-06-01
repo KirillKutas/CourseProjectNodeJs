@@ -1,0 +1,26 @@
+
+Generate SS certificate with the private key
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./kutas.key -out ./kutas.crt
+
+
+
+Generate Private key from CA side
+openssl genrsa -des3 -out caPrivateKey.key 2048
+
+Generate Certificate from CA side
+openssl req -x509 -new -days 365 -sha256 -key ./caPrivateKey.key -sha256 -out ./caCertificate.crt
+
+
+
+Generate Private key from Resource side
+openssl genrsa -out ./resourcePrivateKey.key 2048
+
+
+
+Generate Certificate request from Resource side
+openssl req -new -key ./resourcePrivateKey.key -out ./certRequest.csr -sha256 -config ./config.cfg
+
+
+
+Generate Certificate for a Resource from CA side
+openssl x509 -req -days 365 -sha256 -in ./certRequest.csr -CA ./caCertificate.crt -CAkey ./caPrivateKey.key -CAcreateserial -out ./resourceCert.crt -extensions v3_req -extfile ./config.cfg

@@ -1,0 +1,22 @@
+<div class="mDiv">
+    {{#each data}}
+     <div class="row someVacan">
+        <div class="col-md-2 offset-md-2">
+            <h3>{{this.companyName}}</h3>
+            <form action="OpenChat" method="POST" style="margin-top: 30px; margin-left: 300px">
+                <input class="openVacancies" type="submit" value="Open chat">
+                <input type="hidden" name="id" value="{{this.chatId}}">
+                <input type="hidden" name="user" value="true">
+            </form>
+        </div>
+        <div class="col-md-2">
+            <form action="deleteChat" method="POST" style="margin-top: 63px;margin-left: 300px">
+                <input class="openVacancies" type="submit" value="Delete chat">
+                <input type="hidden" name="id" value="{{this.chatId}}">
+                <input type="hidden" name="user" value="true">
+            </form>
+        </div>
+    </div>
+    {{/each}}
+   
+</div>

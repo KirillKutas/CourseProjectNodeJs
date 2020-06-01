@@ -1,0 +1,49 @@
+<script>
+    function CreateColl() {
+        var topic = document.getElementById('Topics')
+        var toTopic = document.getElementById('Education')
+        toTopic.value = topic.options[topic.selectedIndex].text;
+    }
+</script>
+<div class="mDiv">
+    <form method="POST" {{#if change}}action="UpdateResume"{{else}}action="saveResume"{{/if}}>
+        <div class="row" style="margin-left: 55px; width: 930px;margin-bottom:15px">
+            <div class="col-md-11 offset-md-1">
+                <h3>Desired position:</h3>
+                <input class="inputStyle" type="text" name="Position" value="{{position}}"/>
+            </div>
+        </div>
+        <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;margin-bottom:15px">
+            <div class="col-md-6 offset-md-1">
+                <h3>Education:</h3>
+                <input type="hidden" name="Education" id="Education" value="ed"/>
+                <div class="btn-group">
+                    <select id="Topics">
+                        <option value="1">Bachelor</option>
+                        <option value="2" selected="selected">Higher education</option>
+                        <option value="3">Incomplete higher education</option>
+                        <option value="4">Medium-special</option>
+                        <option value="5">Secondary education</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;margin-bottom:15px">
+            <div class="col-md-6 offset-md-1">
+                <h3>Skills:</h3>
+                <input type="text" name="Skills" class="inputStyle" value="{{skills}}"/>
+            </div>
+        </div>
+        <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;margin-bottom:15px">
+            <div class="col-md-6 offset-md-1">
+                <h3>Languages:</h3>
+                <input type="text" name="Languages" class="inputStyle" value="{{Languages}}"/>
+            </div>
+        </div>
+        <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;margin-bottom:15px">       
+            <div class="col-md-3 offset-md-1" style="margin-top: 15px;">
+                <input class="changePhoto" type="submit" onclick="CreateColl()" value="Save resume" />
+            </div>
+        </div>
+    </form>
+</div>

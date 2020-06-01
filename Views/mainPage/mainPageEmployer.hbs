@@ -1,1 +1,18 @@
-<h1>Emp</h1>
+<div class="mDiv">
+    {{#each data}}
+    <div class="row someVacan">
+
+        <div class="col-md-5 offset-md-4">
+
+            <h3>{{this.name}}</h3>
+            <p>Position: {{this.position}}</p>
+            <p>Skills: {{this.skills}}</p>
+            <form action="checkSomeResume" method="POST" style="margin-left: 500px; margin-top: -30px">
+                <input class="md" type="submit" value="More details" />
+                <input type="hidden" name="id" value="{{this.id}}">
+            </form>
+        </div>
+    </div>
+    {{/each}}
+
+</div>

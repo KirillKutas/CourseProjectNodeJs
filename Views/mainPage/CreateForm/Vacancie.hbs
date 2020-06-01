@@ -1,0 +1,61 @@
+<script>
+    function CreateColl() {
+        var topic = document.getElementById('Topics')
+        var toTopic = document.getElementById('Experience')
+        toTopic.value = topic.options[topic.selectedIndex].text;
+    }
+</script>
+<div class="mDiv">
+    <form method="POST" {{#if change}}action="UpdateVacancy"{{else}}action="saveVacancie"{{/if}}>
+        <div class="row" style="margin-left: 55px; width: 930px;margin-bottom:15px">
+            <div class="col-md-11 offset-md-1">
+                <h3>Position:</h3>
+                <input class="inputStyle" type="text" name="Position" value="{{position}}"/>
+            </div>
+        </div>
+        <div class="row" style="border-top: 2px solid gray;margin-left: 55px; width: 930px;margin-bottom:15px">
+            <div class="col-md-11 offset-md-1">
+                <h3>Salary:</h3>
+                <input class="inputStyle" type="text" name="Salary" value="{{salary}}"/>
+            </div>
+        </div>
+        <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;margin-bottom:15px">
+            <div class="col-md-6 offset-md-1">
+                <h3>Experience:</h3>
+                <input type="hidden" name="Experience" id="Experience" value="ed"/>
+                <div class="btn-group">
+                    <select id="Topics">
+                        <option value="1" selected="selected">No work experience</option>
+                        <option value="2">From 1 to 3 years</option>
+                        <option value="3">From 3 to 5 years</option>
+                        <option value="4">More than 5 years</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;margin-bottom:15px">
+            <div class="col-md-6 offset-md-1">
+                <h3>Skills:</h3>
+                <input type="text" name="Skills" class="inputStyle" value="{{skills}}"/>
+            </div>
+        </div>
+        <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;margin-bottom:15px">
+            <div class="col-md-6 offset-md-1">
+                <h3>Languages:</h3>
+                <input type="text" name="Languages" class="inputStyle" value="{{languages}}"/>
+            </div>
+        </div>
+        <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;margin-bottom:15px">
+            <div class="col-md-6 offset-md-1">
+                <h3>Description:</h3>
+                <input type="text" name="Description" class="inputStyle" value="{{description}}"/>
+            </div>
+        </div>
+        <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;margin-bottom:15px">       
+            <div class="col-md-3 offset-md-1" style="margin-top: 15px;">
+                <input class="changePhoto" type="submit" onclick="CreateColl()" value="Save vacancie" />
+                <input type="hidden" name="id" value="{{id}}">
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,1 +1,66 @@
-<h1>myResume</h1>
+<div class="mDiv">
+    {{#if resume}}
+    <div class="row" style="margin-top: 15px;">
+        <div class="col-md-1 offset-md-2">
+            <h3>{{PersonName}}</h3>
+            <div class="col-md-1 offset-md-1">
+                <h5>{{age}}</h5>
+                <h5>{{telephone}}</h5>
+                <h5>{{mail}}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;">
+        <div class="col-md-6 offset-md-1">
+            <h3>Desired position:</h3>
+            <h6>{{position}}</h6>
+        </div>
+    </div>
+    <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;">
+        <div class="col-md-6 offset-md-1">
+            <h3>Education:</h3>
+            <h6>{{education}}</h6>
+        </div>
+    </div>
+    <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;">
+        <div class="col-md-6 offset-md-1">
+            <h3>Skills:</h3>
+            {{#each skills}}
+            <div style="display: inline-block;">
+                <h6>{{this.skill}}</h6>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;">
+        <div class="col-md-6 offset-md-1">
+            <h3>Languages:</h3>
+            {{#each Languages}}
+            <div style="display: inline-block;">
+                <h6>{{this.language}}</h6>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class="row" style="border-top: 2px solid gray; margin-left: 55px; width: 930px;margin-bottom:15px">
+        <div class="col-md-3 offset-md-1" style="margin-top: 15px;">
+            <form method="GET" action="deleteResume">
+                <input type="submit" value="Delete resume" />
+            </form>
+        </div>
+        <div class="col-md-3" style="margin-top: 15px;">
+            <form method="GET" action="changeResume">
+                <input type="submit" value="Edit resume" />
+            </form>
+        </div>
+
+    </div>
+    {{else}}
+    <div class="row">
+        <div class="col-md-8 offset-md-1" style="margin-top: 15px;margin-bottom: 15px">
+            <p>You don't have a resume. If you want create his, please,<a href="/mainPage/createResume"> click in this
+                    link.</a> </p>
+        </div>
+    </div>
+    {{/if}}
+</div>
